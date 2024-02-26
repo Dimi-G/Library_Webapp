@@ -9,8 +9,8 @@ Will be expanded to API usage for book suggestions/want-to-read lists.
   - Delete rating
 
 ## Installation
-web demo version can be found [here](https://library-webapp.onrender.com)
-For local usage set: app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///books.db'
+- Web demo version can be found [here](https://library-webapp.onrender.com)
+- For local usage change to the following in main.py: app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///books.db'
 
 ## Contributing
 If you'd like to contribute to the project, please follow these steps:
