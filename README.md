@@ -1,4 +1,4 @@
-## Website for managing personal library, with additions/deletions, updates.
+## Website for managing personal (book) library.
 Using Flask framework for the web application, Flask-WTF for the Form classes, Flask_sqlalchemy for the database querying,
 & Bootstrap-Flask, a collection of Jinja macros for rendering Flask-related data and objects to Bootstrap markup HTML.
 Will be expanded to API usage for book suggestions/want-to-read lists.
