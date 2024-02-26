@@ -9,22 +9,22 @@ Will be expanded to API usage for book suggestions/want-to-read lists.
 - [Contributing](#contributing)
 - [License](#license)
 
-##Features
-  - Add book, author and rating
-  - Edit rating
-  - Delete rating
-
-##Installation
-
-##Contributing
-If you'd like to contribute to the project, please follow these steps:
-
-Fork the repository.
-Create a new branch: git checkout -b feature/my-feature.
-Commit your changes: git commit -m 'Add some feature'.
-Push to the branch: git push origin feature/my-feature.
-Open a pull request.
-
-##License
-This project is licensed under the MIT License. See the LICENSE file for details.
+  ##Features
+    - Add book, author and rating
+    - Edit rating
+    - Delete rating
+  
+  ##Installation
+  
+  ##Contributing
+  If you'd like to contribute to the project, please follow these steps:
+  
+  Fork the repository.
+  Create a new branch: git checkout -b feature/my-feature.
+  Commit your changes: git commit -m 'Add some feature'.
+  Push to the branch: git push origin feature/my-feature.
+  Open a pull request.
+  
+  ##License
+  This project is licensed under the MIT License. See the LICENSE file for details.
 
