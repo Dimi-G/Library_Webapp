@@ -5,12 +5,13 @@ from bookdatabaser import Book
 from bookforms import AddForm, EditForm
 from datetime import datetime
 from googlebooks_api import BookApi
+import os
 
 app = Flask(__name__)
 bootstrap=Bootstrap5(app)
 
 #connecting Flask_sqlalchemy with the database and sqlalchemy class created in bookdatabaser
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///books.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_URI", "sqlite:///books.db")
 db = SQLAlchemy(app)
 db.Model = Book
 
@@ -58,5 +59,5 @@ def delete(id):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
 
