@@ -1,0 +1,40 @@
+<!-- Using Jinja syntax to use parent template of base.html and add in child only the necessary changes -->
+{% extends "base.html" %}
+{% block title %}Library{% endblock %}
+{% block content %}
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Book Title</th>
+          <th scope="col">Author</th>
+          <th scope="col">Rating</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      {% for book in all_books %}
+      <tbody>       
+        <tr>        
+          <td>{{ book.book_title }}</td>
+          <td>{{ book.book_author }}</td>
+          <td>{{ book.rating }}</td>
+          <td>
+            <a class="btn btn-outline-secondary" type="button" href="{{url_for('edit', id=book.id)}}" >Change Rating</a>
+            <a class="btn btn-danger" type="button" href="{{url_for('delete', id=book.id)}}">Delete Book</a>
+          </td>
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table> 
+    <a class="btn btn-primary btn-md" type="button" href="{{url_for('add')}}">Add Book</a>
+  </div> 
+{% endblock %}
+
+<!-- In case you want to overide a style from the parent template, you can use the following example
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %} -->
+

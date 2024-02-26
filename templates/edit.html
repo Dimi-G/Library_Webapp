@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% from 'bootstrap5/form.html' import render_form %}
+{% block title %}Edit Page{% endblock %}
+{% block content %}
+<p>Book name: {{book.book_title}}  <br> Current rating: {{book.rating}} </p>
+{{ render_form(edit_form, novalidate=True) }}
+{% endblock %}
