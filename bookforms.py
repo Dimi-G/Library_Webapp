@@ -12,3 +12,7 @@ class AddForm(FlaskForm):
 class EditForm(FlaskForm):
     new_rating=FloatField('New Rating', validators=[InputRequired(),NumberRange(min=0, max=10, message='Please enter a number between 0-10')])
     submit = SubmitField('Change Rating') 
+
+class SearchForm(FlaskForm):
+    search_title = StringField('Book Title', validators=[DataRequired()])
+    submit = SubmitField('Search Book')

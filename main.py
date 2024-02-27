@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect, url_for
 from flask_bootstrap import Bootstrap5
 from flask_sqlalchemy import SQLAlchemy
 from bookdatabaser import Book
-from bookforms import AddForm, EditForm
+from bookforms import AddForm, EditForm, SearchForm
 from datetime import datetime
 from googlebooks_api import BookApi
 import os
@@ -21,8 +21,6 @@ year=datetime.now().year #get's passed to the template, for the html footer to b
 @app.route('/')
 def home():
     all_books = db.session.execute(db.select(Book).order_by(Book.book_author)).scalars()
-    # for book in all_books:
-    #     print(book.book_title)
     return render_template("index.html", all_books=all_books, year=year)
 
 @app.route("/add", methods = ["GET", "POST"])
@@ -57,7 +55,20 @@ def delete(id):
     db.session.commit()
     return redirect(url_for('home'))
 
+@app.route('/search/', methods=["GET", "POST"])
+def search():
+    search_form = SearchForm(meta={'csrf': False})
+    book_api = BookApi()
+    if search_form.validate_on_submit():
+        title=search_form.search_title.data
+        volumes, ids = book_api.find_books(title)
+        image_links = [book_api.find_by_id(id) for id in ids]
+        zipped_list= zip(volumes, image_links)
+        
+        return render_template("googlebooks.html",zipped_list=zipped_list, year=year)
+    return render_template("search.html", form=search_form, year=year)
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True) #set False for deploy
 
+    
