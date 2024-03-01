@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 {% block title %}Search book{% endblock %}
 {% block content %}
-{% for volume, image_link in zipped_list %}
+{% for title,author,date in book_data %}
 <div class="book">
     <ul>
-        <li>{{volume.title}} by {{volume.get('authors', 'unknown')}} 
-        <img src={{image_link}}>
+        <li>{{title}} by 
+            {% for author in authors %}
+            {{author}}
+            {% endfor %}, published in {{date}} 
         </li>
 
     </ul>
