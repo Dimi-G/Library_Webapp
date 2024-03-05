@@ -13,27 +13,22 @@ Will be expanded to API usage for book suggestions/want-to-read lists.
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/your-flask-book-app.git
+    git clone https://github.com/Dimi-G/Library_Webapp.git
     ```
 
-2. Navigate to the project directory:
-
-    ```bash
-    cd your-flask-book-app
-    ```
-
-3. Install dependencies:
+2. Install dependencies:
 
     ```bash
     pip install -r requirements.txt
     ```
 
-4. Create the database:
+3. Create the database:
+
     '''bash
     python3 bookdatabaser.py
     '''
 
-5. Run the application:
+4. Run the application:
 
     ```bash
     python3 main.py
@@ -46,7 +41,7 @@ Will be expanded to API usage for book suggestions/want-to-read lists.
 The project follows a standard Flask application structure:
 
 - `app.py`: The main entry point for the application.
-- `instance/books.db`: The database with the added books.
+- `instance/books.db`: The book database.
 - `templates/`: HTML templates for rendering pages.
 - `static/`: Static files such as images, CSS and JavaScript.
 
