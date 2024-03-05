@@ -26,7 +26,7 @@
       </tbody>
       {% endfor %}
     </table> 
-    <a class="btn btn-primary btn-md" type="button" href="{{url_for('add')}}">Add Book</a>
+    <a class="btn btn-primary btn-md" type="button" href="{{url_for('add', book_id='manual')}}">Add Book</a>
     <a class="btn btn-primary btn-md" type="button" href="{{url_for('search')}}">Search Google Books</a>
   </div> 
 {% endblock %}

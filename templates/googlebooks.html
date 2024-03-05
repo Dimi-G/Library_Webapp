@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}Search book{% endblock %}
 {% block content %}
-{% for title,author,date,link in book_data %}
+{% for title,author,date,link,id in book_data %}
 <div class="book">
     <ul>
         <li>
@@ -12,7 +12,7 @@
             {% endif %}            
             published in {{date}}            
             </a> 
-        </br><a class="btn btn-primary btn-md" type="button" href="{{url_for('add')}}">Add Book</a>
+        </br><a class="btn btn-primary btn-md" type="button" href="{{url_for('find_id', book_title=title, book_author=author[0])}}">Add Book</a>
         </li>
 
     </ul>
