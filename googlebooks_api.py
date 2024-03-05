@@ -22,8 +22,9 @@ class BookApi():
         #due to potential errors if the key 'authors' is not present in a particular dictionary, we are using the get method, which allows to provide a default value (in this case, an empty list []) 
         authors = [volume.get('authors') for volume in volumes]
         ids =  [data["id"] for data in datas]
-        dates =   [volume['publishedDate'] for volume in volumes]       
-        return titles, authors, dates
+        dates =   [volume['publishedDate'] for volume in volumes]
+        links = [volume['infoLink'] for volume in volumes]       
+        return titles, authors, dates, links
     
     # def find_by_id(self, id):
     #     url=f"https://www.googleapis.com/books/v1/volumes/{id}"
@@ -49,6 +50,6 @@ class BookApi():
 # # titles = [volume['title'] for volume in volumes]
 
 # book_api =BookApi()
-# volumes, ids, titles, authors, dates = book_api.find_books("The Shining")
-# print(dates)
+# volumes, titles, authors, dates, links = book_api.find_books("Machine Learning for Dummies")
+# pprint(links)
 

@@ -61,8 +61,8 @@ def search():
     book_api = BookApi()
     if search_form.validate_on_submit():
         title=search_form.search_title.data
-        titles, authors, dates = book_api.find_books(title)
-        book_data = zip(titles, authors, dates)
+        titles, authors, dates, links = book_api.find_books(title)
+        book_data = zip(titles, authors, dates, links)
         return render_template("googlebooks.html", book_data=book_data, year=year)
     return render_template("search.html", form=search_form, year=year)
 

@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
 {% block title %}Search book{% endblock %}
 {% block content %}
-{% for title,author,date in book_data %}
+{% for title,author,date,link in book_data %}
 <div class="book">
     <ul>
-        <li>{{title}} by 
-            {% for author in authors %}
-            {{author}}
-            {% endfor %}, published in {{date}} 
+        <li>
+            <a href={{link}} target="_blank">
+            <b>{{title}}</b> by {{author[0]}}
+            {% if author[1] %}
+            ,{{author[1]}}
+            {% endif %}            
+            published in {{date}}            
+            </a> 
+        </br><a class="btn btn-primary btn-md" type="button" href="{{url_for('add')}}">Add Book</a>
         </li>
 
     </ul>
