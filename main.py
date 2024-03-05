@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for
 from flask_bootstrap import Bootstrap5
 from flask_sqlalchemy import SQLAlchemy
 from bookdatabaser import Book
@@ -11,13 +11,13 @@ app = Flask(__name__)
 bootstrap=Bootstrap5(app)
 
 #connecting Flask_sqlalchemy with the database and sqlalchemy class created in bookdatabaser
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_URI", "sqlite:///books.db")
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///books.db'
 db = SQLAlchemy(app)
 db.Model = Book
 
-year=datetime.now().year #get's passed to the template, for the html footer to be up-to-date
+year=datetime.now().year #gets passed to the template, for the html footer to be up-to-date
 
-#Routing the app, assigning methods to display entries, add, edit and delete them
+#Routing the app, assigning methods to display entries, add, edit , search and delete them
 @app.route('/')
 def home():
     all_books = db.session.execute(db.select(Book).order_by(Book.book_author)).scalars()
@@ -68,17 +68,17 @@ def search():
 
 @app.route("/find_id/<book_title>/<book_author>")
 def find_id(book_title, book_author):
-    #adding the new book info from the API directly to the database 
+    #adding the new book info from the API directly to the database and redirecting user for adding their rating
     new_book=Book(
             book_title = book_title,
             book_author = book_author,
-            rating=0,
+            rating=0, 
             )
     db.session.add(new_book)
     db.session.commit()
     return redirect(url_for('edit', id=new_book.id))
 
 if __name__ == "__main__":
-    app.run(debug=True) #set False for deploy
+    app.run(debug=False)
 
     

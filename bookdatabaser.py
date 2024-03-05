@@ -15,15 +15,3 @@ class Book(Base):
 #creates the database
 engine = create_engine("sqlite:///instance/books.db")
 Base.metadata.create_all(engine)  
-
-## with Session(engine) as session:
-#     new_book = Book(
-#     book_title = "Demonstration Book",
-#     book_author = "Me",
-#     rating = 7,
-#     )   
-#     session.add(new_book)
-#     session.commit()
-
-
-

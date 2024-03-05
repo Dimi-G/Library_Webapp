@@ -1,4 +1,4 @@
-# Inheriting from class FlaskForm, we create child class with the form fields of our choice for the book additions or corrections
+# Inheriting from class FlaskForm, we create a child class with the form fields of our choice for the book additions or corrections
 from flask_wtf import FlaskForm
 from wtforms import SubmitField, StringField, FloatField
 from wtforms.validators import DataRequired, NumberRange, InputRequired
