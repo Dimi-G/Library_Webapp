@@ -24,9 +24,9 @@ Will be expanded to API usage for book suggestions/want-to-read lists.
 
 3. Create the database:
 
-    '''bash
+    ```bash
     python3 bookdatabaser.py
-    '''
+    ```
 
 4. Run the application:
 
