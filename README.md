@@ -1,7 +1,6 @@
 ## Website for managing personal (book) library
-Using Flask framework for the web application, Flask-WTF for the Form classes, Flask_sqlalchemy for the database querying,
+A python application using Flask framework for the web application, Flask-WTF for the Form classes, Flask_sqlalchemy for the database querying,
 & Bootstrap-Flask, a collection of Jinja macros for rendering Flask-related data and objects to Bootstrap markup HTML.
-Will be expanded to API usage for book suggestions/want-to-read lists.
 
 ## Features
   - Manually add book, author and rating
@@ -16,19 +15,26 @@ Will be expanded to API usage for book suggestions/want-to-read lists.
     git clone https://github.com/Dimi-G/Library_Webapp.git
     ```
 
-2. Install dependencies:
+2. Create and activate a virtual environment:
+
+    ```bash
+    pip python3 -m venv .venv
+    .venv/bin/activate
+    ```
+
+3. Install dependencies:
 
     ```bash
     pip install -r requirements.txt
     ```
 
-3. Create the database:
+4. Create the database:
 
     ```bash
     python3 bookdatabaser.py
     ```
 
-4. Run the application:
+5. Run the application:
 
     ```bash
     python3 main.py
