@@ -8,6 +8,8 @@ A python application using Flask framework for the web application, Flask-WTF fo
   - Update rating
   - Delete book from database
 
+  ![demo](static/demo.gif)
+
 ## Setup
 1. Clone the repository:
 
